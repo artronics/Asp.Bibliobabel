@@ -1,0 +1,130 @@
+﻿using System.Collections.Generic;
+using Bibliobabel.Domain.Models;
+using Faker;
+
+namespace Bibliobabel.Data.Migrations
+{
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<Bibliobabel.Data.DataDbContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+        }
+
+        protected override void Seed(Bibliobabel.Data.DataDbContext context)
+        {
+            //var user = new User()
+            //{
+            //    CreatedAt = DateTime.Now,
+            //    UpdatedAt = DateTime.Now,
+            //    Username = "seedname"
+            //};
+            ////context.Users.AddOrUpdate(user);
+
+            //var posts = CreatePosts(4);
+            //foreach (var post in posts)
+            //{
+            //    context.Posts.Add(post);
+            //}
+            //context.SaveChanges();
+
+            var users = CreateUsersWithProfiles(12);
+
+            CreatePostsForUsers(users, 4);
+
+            foreach (var user in users)
+            {
+                context.Users.Add(user);
+            }
+
+            context.SaveChanges();
+        }
+        private void CreatePostsForUsers(List<User> users, int count = 10)
+        {
+            foreach (var user in users)
+            {
+                var posts = CreatePosts(count);
+                user.Posts = posts;
+            }
+        }
+
+        private List<Post> CreatePosts(int count)
+        {
+            var posts = new List<Post>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var post = new Post()
+                {
+                    Content = Faker.Lorem.Paragraph(3),
+                };
+                TimeStamps(post);
+
+                posts.Add(post);
+            }
+
+            return posts;
+        }
+
+        //TODO : Implemet this method to create random DateTime for Entities
+        private void TimeStamps(BaseEntity entity)
+        {
+            //entity.UpdatedAt=
+            //entity.CreatedAt=
+        }
+
+        private List<User> CreateUsersWithProfiles(int count = 10)
+        {
+            var profiles = CreateProfiles(count);
+            var users = CreateUsers(count);
+
+            for (int i = 0; i < count; i++)
+            {
+                users[i].UserProfile = profiles[i];
+            }
+
+            return users;
+        }
+        private List<User> CreateUsers(int count = 10)
+        {
+            var users = new List<User>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var user = new User
+                {
+                    Username = Faker.Internet.UserName(),
+                };
+                TimeStamps(user);
+
+                users.Add(user);
+            }
+
+            return users;
+        }
+
+        private List<UserProfile> CreateProfiles(int count = 10)
+        {
+            var profiles = new List<UserProfile>();
+
+            for (int i = 0; i < count; i++)
+            {
+                var profile = new UserProfile
+                {
+                    Name = Faker.Name.FullName(),
+                    AboutMe = Faker.Lorem.Paragraph(3),
+                };
+                TimeStamps(profile);
+
+                profiles.Add(profile);
+            }
+
+            return profiles;
+        }
+    }
+}
