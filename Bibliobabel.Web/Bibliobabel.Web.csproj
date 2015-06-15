@@ -182,6 +182,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="WindsorDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -282,7 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bibliobabel.Data\Bibliobabel.Data.csproj">
-      <Project>{b67e8f4a-7ed0-4d88-9b84-3d56f18fbc27}</Project>
+      <Project>{6b2f742f-5583-4724-acf9-eb1cbbf8513b}</Project>
       <Name>Bibliobabel.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bibliobabel.Domain\Bibliobabel.Domain.csproj">

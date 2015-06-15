@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 
-namespace Bibliobabel.Data
+namespace Bibliobabel.Web
 {
     public class EmailService : IIdentityMessageService
     {
