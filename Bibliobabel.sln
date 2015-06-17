@@ -16,6 +16,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliobabel.Web", "Biblioba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliobabel.Data", "Bibliobabel.Data\Bibliobabel.Data.csproj", "{6B2F742F-5583-4724-ACF9-EB1CBBF8513B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{506F48F0-DAE6-42D5-ADA3-E805F81EA5A5}"
+	ProjectSection(SolutionItems) = preProject
+		.deployment = .deployment
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
