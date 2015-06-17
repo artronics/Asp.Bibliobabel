@@ -213,6 +213,6 @@ FakesAssemblies/
 
 #We need some excluded files in build fo deployment
 #Bibliobabel.Web/obj/
-!Bibliobabel.Web/obj/Debug/
+#!Bibliobabel.Web/obj/Debug/
 
 ##End of my files
