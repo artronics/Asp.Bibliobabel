@@ -5,9 +5,7 @@
 ## My files
 *.sh
 
-#We need some excluded files in build fo deployment
-!Bibliobabel.Web/obj/Debug/Bibliobabel.Web.dll
-##End of my files
+
 
 # User-specific files
 *.suo
@@ -211,3 +209,10 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+
+#We need some excluded files in build fo deployment
+#Bibliobabel.Web/obj/
+!Bibliobabel.Web/obj/Debug/
+
+##End of my files
