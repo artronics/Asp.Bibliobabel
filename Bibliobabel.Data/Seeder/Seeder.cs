@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,14 @@ namespace Bibliobabel.Data.Seeder
 {
     class Seeder
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly DbContext Context;
         //private readonly ApplicationUserManager _userManager;
-        public UserManager<User, long> UserManager { get; private set; }
+        private UserManager<User, long> UserManager { get; set; }
 
-        public Seeder(UserManager<User, long> applicationUserManager )
+        public Seeder()
         {
-            UserManager = applicationUserManager;
+            var context = new ApplicationDbContext();
+            UserManager = new UserManager<User, long>(new MyUserStore(context));//applicationUserManager;
         }
         
         private List<User> CreateUsersWithProfile(int numberOfUsers = 10, int numberOfPostsPerUser = 5)
