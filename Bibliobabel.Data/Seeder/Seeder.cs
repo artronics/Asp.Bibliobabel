@@ -11,8 +11,6 @@ namespace Bibliobabel.Data.Seeder
 {
     class Seeder
     {
-        //private readonly DbContext Context;
-        //private readonly ApplicationUserManager _userManager;
         private UserManager<User, long> UserManager { get; set; }
 
         public Seeder()

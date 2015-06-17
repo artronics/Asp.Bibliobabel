@@ -16,19 +16,9 @@ namespace Bibliobabel.Data.Migrations
         protected override void Seed(Bibliobabel.Data.ApplicationDbContext context)
         {
             var seeder = new Seeder();
-            seeder.Create(5,7);
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            int numberOfUsers = 5;
+            int numberOfPostsPerUser = 7;
+            seeder.Create(numberOfUsers,numberOfPostsPerUser);
         }
     }
 }
