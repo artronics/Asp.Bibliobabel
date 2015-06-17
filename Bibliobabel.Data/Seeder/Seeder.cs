@@ -20,6 +20,11 @@ namespace Bibliobabel.Data.Seeder
             var context = new ApplicationDbContext();
             UserManager = new UserManager<User, long>(new MyUserStore(context));//applicationUserManager;
         }
+
+        public void Create(int numberOfUsers, int numberOfPostsPerUser)
+        {
+            CreateUsersWithProfile(numberOfUsers, numberOfPostsPerUser);
+        } 
         
         private List<User> CreateUsersWithProfile(int numberOfUsers = 10, int numberOfPostsPerUser = 5)
         {
