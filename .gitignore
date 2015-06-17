@@ -4,6 +4,9 @@
 
 ## My files
 *.sh
+
+#We need some excluded files in build fo deployment
+!Bibliobabel.Web/obj/Debug/Bibliobabel.Web.dll
 ##End of my files
 
 # User-specific files
@@ -25,7 +28,7 @@ x86/
 build/
 bld/
 [Bb]in/
-[Oo]bj/
+#[Oo]bj/
 
 # Visual Studio 2015 cache/options directory
 .vs/
